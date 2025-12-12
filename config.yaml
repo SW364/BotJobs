@@ -1,0 +1,33 @@
+greenhouse_tokens:
+  - ejemploempresa
+lever_companies:
+  - ejemplocompania
+filters:
+  ubicaciones:
+    - Monterrey
+    - "Área Metropolitana"
+    - "Nuevo León"
+    - "Remoto México"
+  niveles:
+    - Intern
+    - Practicante
+    - Becario
+    - Trainee
+    - Junior
+    - Entry
+  titulos_permitidos:
+    - Software Engineer
+    - Full Stack
+    - Backend
+    - Frontend
+    - Android
+    - QA Automation
+    - Data Analyst
+  exclusiones:
+    - Senior
+    - Lead
+    - Staff
+    - Principal
+    - Manager
+  exclusion_por_anos: 3
+  limite_envio: 25
