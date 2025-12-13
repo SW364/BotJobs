@@ -21,6 +21,7 @@ Bot para recopilar vacantes públicas desde Greenhouse y Lever, filtrar posicion
    ```bash
    cp .env.example .env
    # Edita .env para agregar TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID y APIFY_TOKEN
+   # Edita .env para agregar TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID
    ```
 
 ## Configuración
@@ -107,6 +108,10 @@ filters:
    dataset generado (`/v2/datasets/{datasetId}/items`).
 4. Ejecuta `python main.py`; las vacantes de Apify se mezclarán con el resto y pasarán por los mismos filtros y deduplicación.
 
+  exclusion_por_anos: 3
+  limite_envio: 25
+```
+
 ## Uso
 Ejecuta el bot tras configurar `.env` y `config.yaml`:
 ```bash
@@ -118,3 +123,8 @@ python main.py
  2. Obtiene vacantes de Greenhouse, Lever y cualquier conector definido en `external_sources`.
  3. Aplica filtros de ubicación, nivel y años de experiencia, valida que el link funcione, y evita duplicados usando `seen_jobs.json`.
  4. Envía por Telegram un resumen con título, empresa, ubicación, link y un mensaje personalizado (<=300 caracteres). Si el mensaje es largo, se divide en fragmentos de ~3500 caracteres.
+El script:
+1. Carga la configuración y variables de entorno.
+2. Obtiene vacantes de Greenhouse y Lever.
+3. Aplica filtros de ubicación, nivel y años de experiencia, valida que el link funcione, y evita duplicados usando `seen_jobs.json`.
+4. Envía por Telegram un resumen con título, empresa, ubicación, link y un mensaje personalizado (<=300 caracteres). Si el mensaje es largo, se divide en fragmentos de ~3500 caracteres.
