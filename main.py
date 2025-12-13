@@ -9,6 +9,7 @@ from messaging import send_report
 from sources.greenhouse import fetch_greenhouse_jobs
 from sources.lever import fetch_lever_jobs
 from sources.external import fetch_external_jobs
+from sources.apify_indeed import fetch_apify_indeed_jobs
 import storage
 
 
@@ -26,11 +27,14 @@ def collect_jobs(config: Dict) -> List[Dict[str, str]]:
     greenhouse_tokens = config.get("greenhouse_tokens", [])
     lever_companies = config.get("lever_companies", [])
     external_sources = config.get("external_sources", [])
+    apify_indeed_config = config.get("apify_indeed", {})
 
     jobs: List[Dict[str, str]] = []
     jobs.extend(fetch_greenhouse_jobs(greenhouse_tokens))
     jobs.extend(fetch_lever_jobs(lever_companies))
     jobs.extend(fetch_external_jobs(external_sources))
+    apify_token = os.getenv("APIFY_TOKEN")
+    jobs.extend(fetch_apify_indeed_jobs(apify_indeed_config, apify_token))
     return jobs
 
 

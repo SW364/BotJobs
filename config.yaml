@@ -2,6 +2,12 @@ greenhouse_tokens:
   - ejemploempresa
 lever_companies:
   - ejemplocompania
+apify_indeed:
+  country: mx
+  items_limit: 30
+  queries:
+    - query: "Software Engineer Junior"
+      location: "Monterrey"
 external_sources:
   # Ejemplo con un conector externo (RapidAPI) para Indeed/Computrabajo/LinkedIn
   - name: "Indeed via RapidAPI"
