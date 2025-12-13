@@ -2,6 +2,27 @@ greenhouse_tokens:
   - ejemploempresa
 lever_companies:
   - ejemplocompania
+apify_indeed:
+  country: mx
+  items_limit: 30
+  queries:
+    - query: "Software Engineer Junior"
+      location: "Monterrey"
+external_sources:
+  # Ejemplo con un conector externo (RapidAPI) para Indeed/Computrabajo/LinkedIn
+  - name: "Indeed via RapidAPI"
+    endpoint: "https://ejemplo-indeed.p.rapidapi.com/jobs"
+    headers:
+      X-RapidAPI-Key: "TU_API_KEY"
+      X-RapidAPI-Host: "ejemplo-indeed.p.rapidapi.com"
+    params:
+      location: "Monterrey"
+    data_key: "data"
+    title_key: "title"
+    company_key: "company"
+    location_key: "location"
+    url_key: "url"
+    description_key: "description"
 filters:
   ubicaciones:
     - Monterrey
