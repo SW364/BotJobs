@@ -1,0 +1,48 @@
+greenhouse_tokens:
+  - ejemploempresa
+lever_companies:
+  - ejemplocompania
+external_sources:
+  # Ejemplo con un conector externo (RapidAPI) para Indeed/Computrabajo/LinkedIn
+  - name: "Indeed via RapidAPI"
+    endpoint: "https://ejemplo-indeed.p.rapidapi.com/jobs"
+    headers:
+      X-RapidAPI-Key: "TU_API_KEY"
+      X-RapidAPI-Host: "ejemplo-indeed.p.rapidapi.com"
+    params:
+      location: "Monterrey"
+    data_key: "data"
+    title_key: "title"
+    company_key: "company"
+    location_key: "location"
+    url_key: "url"
+    description_key: "description"
+filters:
+  ubicaciones:
+    - Monterrey
+    - "Área Metropolitana"
+    - "Nuevo León"
+    - "Remoto México"
+  niveles:
+    - Intern
+    - Practicante
+    - Becario
+    - Trainee
+    - Junior
+    - Entry
+  titulos_permitidos:
+    - Software Engineer
+    - Full Stack
+    - Backend
+    - Frontend
+    - Android
+    - QA Automation
+    - Data Analyst
+  exclusiones:
+    - Senior
+    - Lead
+    - Staff
+    - Principal
+    - Manager
+  exclusion_por_anos: 3
+  limite_envio: 25
